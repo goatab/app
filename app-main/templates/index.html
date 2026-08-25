@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Analysis MVP</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <p class="eyebrow">Clinical Analysis MVP</p>
+      <h1>Ground clinical notes and images.</h1>
+      <p class="intro">A lightweight workspace for HPO symptom extraction and image classification.</p>
+      <span id="health" class="status">Checking services...</span>
+    </header>
+
+    <section class="workspace" aria-label="Clinical analysis tools">
+      <article class="panel text-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">01 / NLP</p>
+            <h2>Extract symptoms</h2>
+          </div>
+          <span class="panel-mark">HPO</span>
+        </div>
+        <label for="clinical-text">Clinical description</label>
+        <textarea id="clinical-text" placeholder="Example: Patient reports fatigue and joint pain."></textarea>
+        <button id="extract-button" type="button">Extract HPO terms</button>
+        <div id="nlp-results" class="results empty">Results will appear here.</div>
+      </article>
+
+      <article class="panel image-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">02 / VISION</p>
+            <h2>Classify an image</h2>
+          </div>
+          <span class="panel-mark">SVM</span>
+        </div>
+        <label for="image-input">Upload an image</label>
+        <input id="image-input" type="file" accept="image/*">
+        <div id="image-preview" class="preview">No image selected</div>
+        <button id="predict-button" type="button">Run classification</button>
+        <div id="image-result" class="results empty">A trained model is required for prediction.</div>
+      </article>
+    </section>
+
+    <footer>Assistive prototype. Results are not a medical diagnosis.</footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
