@@ -1,8 +1,0 @@
-flask
-spacy
-obonet
-numpy
-pillow
-scikit-learn
-joblib
-rapidfuzz
